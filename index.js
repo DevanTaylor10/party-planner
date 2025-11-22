@@ -44,3 +44,26 @@ async function fetchPartyDetails(id) {
     render();
   }
 }
+
+function PartyList() {
+  const ul = document.createElement("ul");
+  ul.className = "party-list";
+
+  state.parties.forEach((party) => {
+    const li = document.createElement("li");
+    li.textContent = party.name;
+
+    // highlight selected party (extension)
+    if (state.selectedParty && party.id === state.selectedParty.id) {
+      li.classList.add("selected");
+    }
+
+    li.addEventListener("click", () => {
+      fetchPartyDetails(party.id);
+    });
+
+    ul.appendChild(li);
+  });
+
+  return ul;
+}
