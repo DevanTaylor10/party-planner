@@ -1,0 +1,44 @@
+.layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.party-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.party-list li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.party-list li:hover {
+  background: #f5f5f5;
+}
+
+.party-list li.selected {
+  background: #e0e0ff;
+  font-weight: bold;
+}
+
+.empty {
+  color: gray;
+  font-style: italic;
+}
+
+.error {
+  color: red;
+}
