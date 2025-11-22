@@ -89,3 +89,37 @@ function PartyDetails() {
 
   return div;
 }
+
+function render() {
+  const app = document.querySelector("#app");
+  app.innerHTML = ""; // clear everything
+
+  const layout = document.createElement("div");
+  layout.className = "layout";
+
+  const left = document.createElement("div");
+  left.className = "left-panel";
+  left.appendChild(document.createElement("h2")).textContent = "Upcoming Parties";
+  left.appendChild(PartyList());
+
+  const right = document.createElement("div");
+  right.className = "right-panel";
+  right.appendChild(document.createElement("h2")).textContent = "Party Details";
+  right.appendChild(PartyDetails());
+
+  layout.append(left, right);
+  app.appendChild(layout);
+
+  if (state.loading) {
+    const loading = document.createElement("p");
+    loading.textContent = "Loading...";
+    app.prepend(loading);
+  }
+
+  if (state.error) {
+    const err = document.createElement("p");
+    err.textContent = `Error: ${state.error}`;
+    err.className = "error";
+    app.prepend(err);
+  }
+}
