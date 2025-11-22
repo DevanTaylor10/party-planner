@@ -67,3 +67,25 @@ function PartyList() {
 
   return ul;
 }
+
+function PartyDetails() {
+  const div = document.createElement("div");
+  div.className = "party-details";
+
+  if (!state.selectedParty) {
+    div.innerHTML = `<p class="empty">Select a party to see details.</p>`;
+    return div;
+  }
+
+  const party = state.selectedParty;
+
+  div.innerHTML = `
+    <h2>${party.name}</h2>
+    <p><strong>ID:</strong> ${party.id}</p>
+    <p><strong>Date:</strong> ${new Date(party.date).toLocaleString()}</p>
+    <p><strong>Location:</strong> ${party.location}</p>
+    <p>${party.description}</p>
+  `;
+
+  return div;
+}
