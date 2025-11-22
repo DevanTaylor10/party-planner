@@ -99,7 +99,8 @@ function render() {
 
   const left = document.createElement("div");
   left.className = "left-panel";
-  left.appendChild(document.createElement("h2")).textContent = "Upcoming Parties";
+  left.appendChild(document.createElement("h2")).textContent =
+    "Upcoming Parties";
   left.appendChild(PartyList());
 
   const right = document.createElement("div");
@@ -123,3 +124,6 @@ function render() {
     app.prepend(err);
   }
 }
+
+fetchParties();
+render();
